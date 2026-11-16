@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Task 6: page title, meta description, 3 keywords ===== -->
+  <title>Gallery — A09 Photography | Portfolio by Ananya Kaushik</title>
+  <meta name="description" content="Browse the A09 Photography gallery — weddings, portraits, events, nature and street photography by Ananya Kaushik, Delhi NCR. Filter by category and save favourites." />
+  <meta name="keywords" content="photography portfolio gallery, wedding photos Delhi NCR, portrait and street photography" />
+  <meta name="author" content="Ananya Kaushik" />
+  <meta name="theme-color" content="#0E0E12" />
+
+  <meta property="og:title" content="Gallery — A09 Photography" />
+  <meta property="og:description" content="Portfolio gallery: weddings, portraits, events, nature and street photography." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/wedding-1.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E0E12'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23C9A961' text-anchor='middle'%3EA09%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* gallery-specific styles (kept here to keep gallery.html self-documenting) */
+    .gallery-hero {
+      padding: 4rem 0 2rem; text-align: center;
+      background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.10), transparent 55%);
+    }
+    .gallery-hero p { color: var(--text-muted); max-width: 640px; margin: .5rem auto 0; }
+
+    .filters {
+      display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center;
+      margin: 2rem 0 2.5rem;
+    }
+    .filter-btn {
+      background: transparent; border: 1px solid var(--border); color: var(--text-muted);
+      padding: .5rem 1.1rem; border-radius: 999px; cursor: pointer; font-size: .9rem;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;  /* extra transition */
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: var(--accent); color: #1a1a1a; border-color: var(--accent); font-weight: 600; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .gallery-card {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border);
+      transition: transform .3s ease, box-shadow .3s ease;  /* extra transition */
+    }
+    .gallery-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .gallery-card .img-wrap { aspect-ratio: 4/3; overflow: hidden; background: var(--bg); }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .gallery-card:hover img { transform: scale(1.06); }
+    .gallery-card .caption {
+      padding: .9rem 1rem 1rem;
+    }
+    .gallery-card .caption h3 { font-family: var(--font-body); font-size: .98rem; font-weight: 600; margin-bottom: .25rem; color: var(--text); }
+    .gallery-card .caption p { font-size: .85rem; color: var(--text-muted); margin: 0; }
+    .gallery-card .tag {
+      position: absolute; top: .7rem; left: .7rem;
+      background: rgba(14,14,18,.78); color: var(--accent);
+      padding: .25rem .65rem; border-radius: 999px; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+    }
+    .fav-btn {
+      position: absolute; top: .6rem; right: .6rem;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(14,14,18,.78); border: 1px solid var(--border);
+      color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
+    .fav-btn:hover { background: var(--accent); color: #1a1a1a; transform: scale(1.08); }
+    .fav-btn.fav { background: var(--accent); color: #1a1a1a; }
+    .fav-btn svg { width: 18px; height: 18px; }
+
+    .fav-bar {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      flex-wrap: wrap; margin: 2.5rem 0 0; padding: 1rem 1.2rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .fav-bar .count strong { color: var(--accent); font-family: var(--font-head); font-size: 1.4rem; }
+    .fav-bar .count span { color: var(--text-muted); font-size: .9rem; }
+
+    .empty-state { text-align: center; color: var(--text-muted); padding: 3rem 0; font-style: italic; }
+
+    /* lightbox-ish enlarged view (CSS only) */
+    .gallery-card:focus-within { outline: 3px solid var(--accent); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="A09 Photography — home">
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1A1A22" stroke="#C9A961" stroke-width="1.5"/>
+          <circle cx="32" cy="26" r="9" fill="none" stroke="#C9A961" stroke-width="2.5"/>
+          <circle cx="32" cy="26" r="3.5" fill="#C9A961"/>
+          <path d="M16 50 L26 38 L34 44 L48 28 L58 50 Z" fill="#C9A961" opacity="0.85"/>
+          <text x="32" y="60" font-family="Playfair Display, Georgia, serif" font-size="9" font-weight="700" fill="#F5F5F0" text-anchor="middle" letter-spacing="1">A09</text>
+        </svg>
+        <span class="brand-name">A<span>09</span> Photography</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+
+      <nav class="main-nav" id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a href="index.html#packages">Packages</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a class="nav-cta" href="index.html#book">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ GALLERY HERO ============ -->
+    <section class="gallery-hero">
+      <div class="container">
+        <p class="eyebrow">Portfolio</p>
+        <h1>Selected work, 2020–2026</h1>
+        <p>Every photo below carries a written description so the gallery is usable for everyone, including visitors using screen readers. Filter by category or save your favourites — they're remembered on this device.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+
+        <!-- Filter buttons (JS-driven) -->
+        <div class="filters" role="group" aria-label="Filter gallery by category">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="wedding" aria-pressed="false">Weddings</button>
+          <button class="filter-btn" data-filter="portrait" aria-pressed="false">Portraits</button>
+          <button class="filter-btn" data-filter="event" aria-pressed="false">Events</button>
+          <button class="filter-btn" data-filter="nature" aria-pressed="false">Nature</button>
+          <button class="filter-btn" data-filter="street" aria-pressed="false">Street</button>
+        </div>
+
+        <!-- Gallery grid (images injected by JS for filter + favourites wiring) -->
+        <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+
+        <p class="empty-state" id="emptyState" style="display:none;">No photos in this category yet.</p>
+
+        <!-- Favourites bar (Local Storage DOM updates) -->
+        <div class="fav-bar" aria-live="polite">
+          <div class="count" id="favCount">
+            <strong id="favNum">0</strong><span> photo(s) saved as favourites on this device</span>
+          </div>
+          <button type="button" class="btn btn--ghost" id="showFav">Show only favourites</button>
+          <button type="button" class="clear-btn" id="clearFav">Clear favourites</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section section--alt" aria-labelledby="cta-title">
+      <div class="container center">
+        <p class="eyebrow">Like what you see?</p>
+        <h2 id="cta-title">Let's plan your shoot</h2>
+        <p class="muted" style="max-width:540px; margin:0 auto 1.6rem;">
+          Tell me the date, the vibe, and the people involved — I'll send back a custom quote within 24 hours.
+        </p>
+        <a class="btn btn--primary" href="index.html#book">Book a session</a>
+        <a class="btn btn--ghost" href="index.html#contact" style="margin-left:.5rem;">Contact me</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="A09 Photography — home" style="margin-bottom:.8rem;">
+            <span class="brand-name">A<span>09</span> Photography</span>
+          </a>
+          <p class="muted" style="max-width:340px;">Wedding, portrait, event and street photography in Delhi NCR. Built by Ananya Kaushik.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#packages">Packages</a></li>
+            <li><a href="index.html#book">Book a session</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>Sector 21C, Faridabad</li>
+            <li>Haryana 121001, India</li>
+            <li><a href="tel:+9198xxxxxxxx">+91 98xxx xxxxx</a></li>
+            <li><a href="mailto:hello@a09photography.in">hello@a09photography.in</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ai-note">
+        <strong>AI disclosure:</strong> This website was designed and coded with assistance from Z.ai (GLM) AI as part of the Web Designing (4.5CS07O101) individual case-study assignment at Manav Rachna University. All code has been reviewed and customised by the student, Ananya Kaushik (Roll 2K26CSU01NN009).
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 A09 Photography · Ananya Kaushik. All rights reserved.</span>
+        <span>Built with semantic HTML5, custom CSS (Flexbox + Grid), and vanilla JavaScript.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

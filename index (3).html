@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Task 6: page title, meta description, 3 keywords ===== -->
+  <title>A09 Photography | Freelance Photographer in Delhi NCR — Ananya Kaushik</title>
+  <meta name="description" content="A09 Photography by Ananya Kaushik — wedding, portrait, event and street photography in Delhi NCR. View the portfolio gallery and book your session online." />
+  <meta name="keywords" content="freelance photographer Delhi NCR, wedding photography portfolio, portrait photography booking" />
+  <meta name="author" content="Ananya Kaushik" />
+  <meta name="theme-color" content="#0E0E12" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="A09 Photography — Ananya Kaushik" />
+  <meta property="og:description" content="Wedding, portrait, event & street photography in Delhi NCR. Book your session online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/hero-1.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E0E12'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' font-weight='700' fill='%23C9A961' text-anchor='middle'%3EA09%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER + NAV (semantic HTML5) ============ -->
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="A09 Photography — home">
+        <!-- Inline SVG logo (media/SVG element requirement) -->
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1A1A22" stroke="#C9A961" stroke-width="1.5"/>
+          <circle cx="32" cy="26" r="9" fill="none" stroke="#C9A961" stroke-width="2.5"/>
+          <circle cx="32" cy="26" r="3.5" fill="#C9A961"/>
+          <path d="M16 50 L26 38 L34 44 L48 28 L58 50 Z" fill="#C9A961" opacity="0.85"/>
+          <text x="32" y="60" font-family="Playfair Display, Georgia, serif" font-size="9" font-weight="700" fill="#F5F5F0" text-anchor="middle" letter-spacing="1">A09</text>
+        </svg>
+        <span class="brand-name">A<span>09</span> Photography</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+
+      <nav class="main-nav" id="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-cta" href="#book">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Freelance Photographer • Delhi NCR</p>
+        <h1 id="hero-title">Capturing moments that <span class="gold">feel like memory.</span></h1>
+        <p class="lead">
+          Hi, I'm Ananya Kaushik — wedding, portrait, event and street photographer.
+          Welcome to A09 Photography, my online portfolio and booking desk.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="gallery.html">View Gallery</a>
+          <a class="btn btn--ghost" href="#book">Book a Session</a>
+        </div>
+        <div class="hero-stats" aria-label="Photographer statistics">
+          <div class="stat"><strong>180+</strong><span>Shoots delivered</span></div>
+          <div class="stat"><strong>6 yrs</strong><span>Behind the lens</span></div>
+          <div class="stat"><strong>4.9★</strong><span>Avg. client rating</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-img">
+          <img src="images/portrait-1.jpg" alt="Ananya Kaushik, freelance photographer, holding her camera at a portrait session." loading="lazy" />
+        </div>
+        <div class="about-text">
+          <p class="eyebrow">About the photographer</p>
+          <h2 id="about-title">Hello, I'm Ananya.</h2>
+          <p>
+            I'm a Delhi NCR–based freelance photographer specialising in weddings,
+            portraits and live events. Before this site existed, my portfolio lived
+            inside a single PDF — clients couldn't browse my work on their phones,
+            and Google had no idea I existed. So I built a real, responsive home for
+            my photography.
+          </p>
+          <ul>
+            <li>Wedding &amp; pre-wedding storytelling, full-day coverage</li>
+            <li>Studio and outdoor portraits — individuals, families, brands</li>
+            <li>Event coverage — concerts, conferences, college fests</li>
+            <li>Every gallery image carries a written description for accessibility</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PACKAGES (TABLE) ============ -->
+    <section class="section section--alt" id="packages" aria-labelledby="pkg-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Pricing</p>
+          <h2 id="pkg-title">Transparent packages, no surprises</h2>
+          <p>Pick a base package and customise add-ons when you book. All prices in INR, inclusive of basic editing.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="packages">
+            <caption>Comparison of three photography packages offered by A09 Photography.</caption>
+            <thead>
+              <tr>
+                <th scope="col">What's included</th>
+                <th scope="col">Essential</th>
+                <th scope="col">Signature</th>
+                <th scope="col">Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Coverage hours</th>
+                <td>3 hours</td>
+                <td>6 hours</td>
+                <td>Full day (10 hrs)</td>
+              </tr>
+              <tr>
+                <th scope="row">Edited photos delivered</th>
+                <td>40</td>
+                <td>120</td>
+                <td>300+</td>
+              </tr>
+              <tr>
+                <th scope="row">Online gallery</th>
+                <td class="feature-yes">Yes</td>
+                <td class="feature-yes">Yes</td>
+                <td class="feature-yes">Yes + prints</td>
+              </tr>
+              <tr>
+                <th scope="row">Second photographer</th>
+                <td class="feature-no">—</td>
+                <td class="feature-yes">Yes</td>
+                <td class="feature-yes">Yes (2)</td>
+              </tr>
+              <tr>
+                <th scope="row">Drone / aerial shots</th>
+                <td class="feature-no">—</td>
+                <td class="feature-no">—</td>
+                <td class="feature-yes">Yes</td>
+              </tr>
+              <tr>
+                <th scope="row">Delivery time</th>
+                <td>10 days</td>
+                <td>14 days</td>
+                <td>21 days</td>
+              </tr>
+              <tr>
+                <th scope="row">Starting price</th>
+                <td><span class="price">₹14,999</span></td>
+                <td><span class="price">₹34,999</span></td>
+                <td><span class="price">₹69,999</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4">Prices are indicative starting points; final quote depends on location, dates and add-ons selected in the booking form.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING FORM (5+ input types) ============ -->
+    <section class="section" id="book" aria-labelledby="book-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Booking enquiry</p>
+          <h2 id="book-title">Reserve your date</h2>
+          <p>Tell me about your shoot. Your enquiry is saved on this device so you can revisit it later.</p>
+        </div>
+
+        <form class="form-card" id="bookingForm" novalidate aria-describedby="form-help">
+          <p id="form-help" class="hint" style="margin-bottom:1rem;">
+            Fields marked <span class="req" aria-hidden="true">*</span> are required. We reply within 24 hours.
+          </p>
+
+          <div class="form-grid">
+            <!-- 1. text -->
+            <div class="field">
+              <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required minlength="2" maxlength="60" />
+              <span class="field-error" id="err-name" aria-live="polite"></span>
+            </div>
+
+            <!-- 2. email -->
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+              <span class="field-error" id="err-email" aria-live="polite"></span>
+            </div>
+
+            <!-- 3. tel -->
+            <div class="field">
+              <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required pattern="[0-9+()\- ]{10,15}" placeholder="+91 98xxx xxxxx" />
+              <span class="field-error" id="err-phone" aria-live="polite"></span>
+            </div>
+
+            <!-- 4. date -->
+            <div class="field">
+              <label for="shootDate">Preferred date <span class="req" aria-hidden="true">*</span></label>
+              <input type="date" id="shootDate" name="shootDate" required />
+              <span class="field-error" id="err-shootDate" aria-live="polite"></span>
+            </div>
+
+            <!-- 5. select (event type) -->
+            <div class="field">
+              <label for="eventType">Type of shoot <span class="req" aria-hidden="true">*</span></label>
+              <select id="eventType" name="eventType" required>
+                <option value="">— select —</option>
+                <option value="wedding">Wedding / Pre-wedding</option>
+                <option value="portrait">Portrait session</option>
+                <option value="event">Event coverage</option>
+                <option value="street">Street / travel</option>
+                <option value="product">Product / brand</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="field-error" id="err-eventType" aria-live="polite"></span>
+            </div>
+
+            <!-- 6. number (hours) -->
+            <div class="field">
+              <label for="hours">Hours of coverage needed <span class="req" aria-hidden="true">*</span></label>
+              <input type="number" id="hours" name="hours" min="1" max="16" step="1" value="4" required />
+              <span class="field-error" id="err-hours" aria-live="polite"></span>
+            </div>
+
+            <!-- 7. range (budget) -->
+            <div class="field">
+              <label for="budget">Estimated budget (₹) — <span class="range-output" id="budgetOut">35,000</span></label>
+              <input type="range" id="budget" name="budget" min="5000" max="150000" step="1000" value="35000" aria-valuemin="5000" aria-valuemax="150000" />
+              <span class="hint">Drag to set an approximate budget. Final quote confirmed on call.</span>
+            </div>
+
+            <!-- 8. url (portfolio link, optional) -->
+            <div class="field">
+              <label for="ref">Reference / mood-board link <span class="hint">(optional)</span></label>
+              <input type="url" id="ref" name="ref" placeholder="https://instagram.com/..." />
+              <span class="field-error" id="err-ref" aria-live="polite"></span>
+            </div>
+
+            <!-- 9. textarea (message) -->
+            <div class="field full">
+              <label for="message">Tell me about your shoot <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required minlength="15" maxlength="600" placeholder="Venue, vibe, number of people, anything I should know…"></textarea>
+              <span class="field-error" id="err-message" aria-live="polite"></span>
+            </div>
+
+            <!-- 10. checkbox (consent) -->
+            <div class="field full">
+              <div class="checkbox-row">
+                <input type="checkbox" id="consent" name="consent" required />
+                <label for="consent">I agree to be contacted about my enquiry and accept the <a href="#privacy">privacy notice</a>. <span class="req" aria-hidden="true">*</span></label>
+              </div>
+              <span class="field-error" id="err-consent" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Send enquiry</button>
+            <button type="reset" class="btn btn--ghost">Clear form</button>
+          </div>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+
+        <!-- Saved enquiries (Local Storage DOM updates) -->
+        <div class="inquiries" aria-labelledby="inq-title">
+          <h3 id="inq-title">Your saved enquiries on this device</h3>
+          <ul class="inquiries-list" id="inquiriesList" aria-live="polite">
+            <li class="empty">No enquiries yet — your submitted bookings will appear here.</li>
+          </ul>
+          <p style="margin-top:1rem;">
+            <button type="button" class="clear-btn" id="clearInquiries">Clear saved enquiries</button>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT + MAP (iFrame element) ============ -->
+    <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+      <div class="container about-grid">
+        <div class="about-text">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Studio &amp; contact</h2>
+          <p>
+            Based in Faridabad, serving Delhi NCR and destinations across North India.
+            Drop by with an appointment, or message me on WhatsApp.
+          </p>
+          <ul class="about-text" style="list-style:none; margin-top:1rem;">
+            <li style="color:var(--text)"><strong>Studio:</strong> Sector 21C, Faridabad, Haryana 121001</li>
+            <li style="color:var(--text)"><strong>Phone / WhatsApp:</strong> +91 98xxx xxxxx</li>
+            <li style="color:var(--text)"><strong>Email:</strong> hello@a09photography.in</li>
+            <li style="color:var(--text)"><strong>Hours:</strong> Mon–Sat, 10:00–19:00</li>
+          </ul>
+          <div class="hero-actions" style="margin-top:1.2rem;">
+            <a class="btn btn--primary" href="https://wa.me/9198xxxxxxxx" target="_blank" rel="noopener">WhatsApp me</a>
+            <a class="btn btn--ghost" href="mailto:hello@a09photography.in">Email</a>
+          </div>
+        </div>
+        <div>
+          <!-- iframe (media/iframe element requirement) -->
+          <div class="map-wrap">
+            <iframe
+              title="A09 Photography studio location on Google Maps — Sector 21C, Faridabad"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=77.24%2C28.38%2C77.30%2C28.42&amp;layer=mapnik&amp;marker=28.4025%2C77.2700"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY (Task 6 ethics) ============ -->
+    <section class="section" id="privacy" aria-labelledby="priv-title">
+      <div class="container">
+        <div class="section-head" style="text-align:left; margin-bottom:1.5rem;">
+          <p class="eyebrow">Ethics &amp; privacy</p>
+          <h2 id="priv-title">How I handle your data and your photos</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <h3>Privacy</h3>
+            <p class="muted">Enquiry forms are stored only in your own browser's Local Storage on this device — nothing is sent to a server in this demo. On the live site, form data is transmitted over HTTPS and never sold or shared with third parties for marketing.</p>
+          </div>
+          <div>
+            <h3>Copyright</h3>
+            <p class="muted">All photographs in this portfolio are the property of A09 Photography / Ananya Kaushik and may not be reused without written permission. Sample images on this demo site are used for academic coursework only.</p>
+          </div>
+          <div>
+            <h3>AI disclosure</h3>
+            <p class="muted">This website's HTML, CSS and JavaScript were authored with assistance from Z.ai (GLM) AI. The code was reviewed, customised and deployed by the student. AI assistance is declared here in line with Manav Rachna University's academic integrity policy.</p>
+          </div>
+          <div>
+            <h3>Accessibility</h3>
+            <p class="muted">Every image carries descriptive alt text, the colour palette meets WCAG AA contrast, forms have proper labels, and a skip-to-content link is provided for keyboard users.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="A09 Photography — home" style="margin-bottom:.8rem;">
+            <span class="brand-name">A<span>09</span> Photography</span>
+          </a>
+          <p class="muted" style="max-width:340px;">Wedding, portrait, event and street photography in Delhi NCR. Built by Ananya Kaushik.</p>
+          <div class="footer-social" aria-label="Social links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://wa.me/9198xxxxxxxx" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4zm-2.5 3.5c-.2 0-.5.1-.7.3-.4.4-1 1-1 2.2 0 1.2.9 2.4 1 2.5.1.2 1.7 2.7 4.2 3.7 2 .8 2.4.6 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3l-1.6-.8c-.2-.1-.4-.1-.5.1l-.6.8c-.1.2-.3.2-.4.1-.6-.2-1.4-.6-2.1-1.4-.5-.5-.9-1.1-1-1.3-.1-.2 0-.3.1-.4l.3-.4.2-.4v-.4l-.7-1.7c-.2-.4-.3-.4-.5-.4z"/></svg>
+            </a>
+            <a href="mailto:hello@a09photography.in" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#book">Book a session</a></li>
+            <li><a href="#privacy">Privacy &amp; ethics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>Sector 21C, Faridabad</li>
+            <li>Haryana 121001, India</li>
+            <li><a href="tel:+9198xxxxxxxx">+91 98xxx xxxxx</a></li>
+            <li><a href="mailto:hello@a09photography.in">hello@a09photography.in</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ai-note">
+        <strong>AI disclosure:</strong> This website was designed and coded with assistance from Z.ai (GLM) AI as part of the Web Designing (4.5CS07O101) individual case-study assignment at Manav Rachna University. All code has been reviewed, customised and is owned by the student, Ananya Kaushik (Roll 2K26CSU01NN009). Sample photography is for academic demonstration only.
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 A09 Photography · Ananya Kaushik. All rights reserved.</span>
+        <span>Built with semantic HTML5, custom CSS (Flexbox + Grid), and vanilla JavaScript.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
